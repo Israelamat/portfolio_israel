@@ -1,0 +1,74 @@
+---
+import IconMail from '../assets/icons/IconMail.astro'
+import IconCopy from '../assets/icons/IconCopy.astro'
+import IconSend from '../assets/icons/IconSend.astro'
+---
+
+<footer id='contacto' class='md:w-[720px] container mx-auto pb-8 px-4 z-20 md:px-0'>
+  <div class='mb-8'>
+    <h2
+      class='flex gap-2 items-center text-4xl md:text-5xl font-extrabold mb-8'
+    >
+      <IconMail class='size-10 md:size-12' /><span>Contacto</span>
+    </h2>
+    <div class='grid grid-cols-8 flex-wrap md:flex-nowrap items-center gap-3'>
+      <article
+        class='col-span-8 md:col-span-6 w-full px-4 py-2 border-2 bg-slate-900 border-slate-700 rounded-xl overflow-hidden line-clamp-1'
+      >
+        <input
+          id='email'
+          class='text-lg bg-transparent w-full'
+          value='israelamatgil@gmail.com'
+        />
+      </article>
+      <a
+        href='mailto:israelamatgil@gmail.com'
+        class='col-span-4 md:col-span-1 relative px-4 py-2 group/copy text-black bg-sky-300 rounded-lg grid place-content-center'
+      >
+        <IconSend />
+        <span
+          class='absolute top-0 left-[50%] -translate-x-[50%] -translate-y-12 px-4 py-2 rounded-xl bg-white text-black w-[125px] transition-all duration-200 ease-out opacity-0 group-hover/copy:opacity-100 text-center'
+          >Enviar email</span
+        >
+      </a>
+      <button
+        id='button-copy-email'
+        class='col-span-4 md:col-span-1 relative px-4 py-2 group/copy text-black bg-sky-300 rounded-lg grid place-content-center'
+      >
+        <IconCopy />
+        <span
+          id='tooltip-email'
+          class='absolute top-0 left-[50%] -translate-x-[50%] -translate-y-12 px-4 py-2 rounded-xl bg-white text-black w-[125px] transition-all duration-200 ease-out opacity-0 group-hover/copy:opacity-100 text-center'
+          >Copiar email</span
+        >
+      </button>
+    </div>
+  </div>
+
+
+</footer>
+
+<script>
+  const emailInput = document.getElementById('email') as HTMLInputElement;
+  const buttonEmail = document.getElementById('button-copy-email');
+
+  buttonEmail?.addEventListener('click', () => {
+    if (emailInput) {
+      emailInput.spellcheck = false; //Quitar el Corrector ortográfico para movil
+      emailInput.select(); 
+      document.execCommand('copy'); 
+
+      setTimeout(() => {
+        emailInput.spellcheck = true;
+      }, 1000);
+
+      let tooltipEmail = document.getElementById('tooltip-email') as HTMLElement;
+      tooltipEmail.innerHTML = 'Copiado';
+    }
+  });
+
+  buttonEmail?.addEventListener('mouseleave', () => {
+    let tooltipEmail = document.getElementById('tooltip-email') as HTMLElement;
+    tooltipEmail.innerHTML = 'Copiar';
+  });
+</script>

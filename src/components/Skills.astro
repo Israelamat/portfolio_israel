@@ -1,0 +1,74 @@
+---
+import IconAstro from '../assets/icons/IconAstro.astro'
+import IconCode from '../assets/icons/IconCode.astro'
+import IconPandas from '../assets/icons/IconPandas.astro'
+import IconHeartCode from '../assets/icons/IconHeartCode.astro'
+import IconPython from '../assets/icons/IconPython.astro'
+import IconTS from '../assets/icons/IconTS.astro'
+import IconExpress from '../assets/icons/IconExpress.astro'
+import IconPhp from '../assets/icons/IconPhp.astro'
+import IconJava from '../assets/icons/IconJava.astro'
+import IconAngular from '../assets/icons/IconAngular.astro'
+import IconSymfony from '../assets/icons/IconSymfony.astro'
+import IconMongo from '../assets/icons/IconMongo.astro'
+import IconDjango from '../assets/icons/IconDjango.astro'
+import IconBootstrap from '../assets/icons/IconBootstrap.astro'
+
+
+const technologies = [
+  { name: 'Python', Icon: IconPython},
+  { name: 'TypeScript', Icon: IconTS },
+  { name: 'Php', Icon: IconPhp },
+  { name: 'Java', Icon: IconJava },
+]
+
+const learnTechnologies = [
+  { name: 'Astro', Icon: IconAstro },
+  { name: 'Angular', Icon: IconAngular },
+  { name: 'Express', Icon: IconExpress },
+  { name: 'Symfony', Icon: IconSymfony },
+  { name: 'Pandas', Icon: IconPandas },
+  { name: 'Boostrap', Icon: IconBootstrap },
+  { name: 'Django', Icon: IconDjango },
+  { name: 'MongoDB', Icon: IconMongo },
+]
+---
+
+<section
+  id='habilidades'
+  class='w-full md:w-[720px] container mx-auto pt-20 pb-20'
+>
+  <h2 class='flex gap-2 items-center text-4xl md:text-5xl font-extrabold mb-8'>
+    <IconCode class='size-10 md:size-12' /><span>Lenguajes</span>
+  </h2>
+
+  <ul class='grid grid-cols-4 gap-2 text-center mb-12'>
+    {
+      technologies.map(({ name, Icon }) => (
+        <li class='col-span-2 md:col-span-1 size-full flex items-center gap-2 p-4 bg-slate-900 border-slate-700 rounded-md'>
+          <span>
+            <Icon class='size-5' />
+          </span>
+          <h3 class='font-bold'>{name}</h3>
+        </li>
+      ))
+    }
+  </ul>
+
+  <h2 class='flex gap-2 items-center text-4xl md:text-5xl font-extrabold mb-8'>
+    <IconHeartCode class='size-10 md:size-12' /><span>Tecnologias</span>
+  </h2>
+
+  <ul class='grid grid-cols-4 gap-2 text-center'>
+    {
+      learnTechnologies.map(({name, Icon}) => (
+        <li class='col-span-2 md:col-span-1 size-full flex items-center gap-2 p-4 bg-slate-900 border-slate-700 rounded-md'>
+          <span>
+            <Icon class='size-5' />
+          </span>
+          <h3 class='font-bold'>{name}</h3>
+        </li>
+      ))
+    }
+  </ul>
+</section>

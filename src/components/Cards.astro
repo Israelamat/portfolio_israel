@@ -1,0 +1,182 @@
+---
+import Habitaciones from '../assets/img/habitaciones.jpg'
+import home from '../assets/img/Tournament.jpg'
+import ebisu from '../assets/img/ebisu.jpg'
+import assbook from '../assets/img/assbook.jpg'
+import jobentry from '../assets/img/jobEntry.jpg'
+
+import IconPython from '../assets/icons/IconPython.astro'
+import IconTS from '../assets/icons/IconTS.astro'
+import IconPhp from '../assets/icons/IconPhpCards.astro'
+import IconExpress from '../assets/icons/IconExpress.astro'
+import IconLink from '../assets/icons/IconLink.astro'
+import IconExternalLink from '../assets/icons/IconExternalLink.astro'
+import IconNodeJS from '../assets/icons/IconNodeJS.astro'
+import IconNjk from '../assets/icons/IconNjk.astro'
+import IconMongo from '../assets/icons/IconMongo.astro'
+import IconDjango from '../assets/icons/IconDjango.astro'
+import IconBootstrap from '../assets/icons/IconBootstrap.astro'
+import IconLaravel from '../assets/icons/IconLaravel.astro'
+import IconAngular from '../assets/icons/IconAngular.astro'
+import IconSymfony from '../assets/icons/IconSymfony.astro'
+
+const TAGS = {
+  MONGO:{
+    name: 'MongoDB',
+    color: 'bg-blue-500/30',
+    Icon: IconMongo
+  },
+    NJK: {
+      name: 'Njk',
+      color: 'bg-blue-500/30',
+      Icon: IconNjk
+    },
+  BOOTSTRAP: {
+    name: 'Bootstrap',
+    color: 'bg-blue-500/30',
+    Icon: IconBootstrap
+  }
+  ,
+  DJANGO: {
+    name: 'Django',
+    color: 'bg-blue-500/30',
+    Icon: IconDjango
+  },
+
+  PYTHON: {
+    name: 'Python',
+    color: 'bg-blue-500/30',
+    Icon: IconPython
+  },
+  EXPRESS: {
+    name: 'Express',
+    color: 'bg-blue-500/30',
+    Icon: IconExpress
+  },
+  NODE: {
+    name: 'NodeJS',
+    color: 'bg-blue-500/30',
+    Icon: IconNodeJS
+  },
+  SYMFONY: {
+    name: 'Symfony',
+    color: 'bg-blue-500/30',
+    Icon: IconSymfony
+  },
+  LARAVEL: {
+    name: 'Laravel',
+    color: 'bg-blue-500/30',
+    Icon: IconLaravel
+  },
+  ANGULAR:{
+    name: 'Angular',
+    color: 'bg-blue-500/30',
+    Icon: IconAngular
+  },
+  PHP: {
+    name: 'Php',
+    color: 'bg-blue-500/30',
+    Icon: IconPhp
+  },
+  TS: {
+    name: 'TypeScript',
+    color: 'bg-blue-500/30',
+    Icon: IconTS
+  }
+}
+
+const projects = [
+  
+  {
+    title: 'JobEntry',
+    description: 'Plataforma para publicar vacantes de trabajo, enviar mails a la app y gestionar users',
+    thumbnail: jobentry,
+    link: 'https://jobentry.isra712.store/',
+    repo: 'https://github.com/Israelamat',
+    tags: [TAGS.PHP, TAGS.SYMFONY, TAGS.BOOTSTRAP]
+  },
+
+  {
+    title: 'Assbook',
+    description: 'Red social propia para subir fotos, buscar en la timeline, buscar perfiles, etc Servicios externos de terceros',
+    thumbnail: assbook,
+    link: 'https://assbook.isra712.store/',
+    repo: 'https://github.com/Israelamat/ProyectoAngular_Final',
+    tags: [TAGS.TS, TAGS.ANGULAR, TAGS.BOOTSTRAP]
+  },
+  {
+    title: 'Tournament',
+    description: 'App de gestion de torneos de todo tipo con sitema de puntuacion propio',
+    thumbnail: home,
+    link: 'https://isra712.store/',
+    repo: 'https://github.com/Israelamat/Tournament.git',
+    tags: [TAGS.PYTHON, TAGS.DJANGO, TAGS.BOOTSTRAP]
+  },
+  {
+    title: 'Gestion de Hoteles',
+    description: 'Aplicación de gestión de habitaciones de hoteles',
+    thumbnail: Habitaciones,
+    link: 'https://hotel.isra712.store/habitaciones',
+    repo: 'https://github.com/Israelamat/Hotel.git',
+    tags: [TAGS.NODE, TAGS.EXPRESS, TAGS.NJK, TAGS.MONGO]
+  },
+]
+---
+
+{
+  projects.map(({ title, description, thumbnail, link, repo, tags }) => (
+    <li class='col-span-4 grid grid-cols-6 gap-5 place-items-center group/item'>
+      <article class='col-span-6 md:col-span-3 relative rounded-xl overflow-hidden bg-slate-800'>
+        <a href={link} target='_blank'>
+          <img
+            class='transition-transform duration-300 w-full h-full object-cover ease-in-out group-hover/item:scale-110'
+            src={thumbnail.src}
+            alt={`Proyecto: ${title}`}
+          />
+        </a>
+      </article>
+
+      <div class='col-span-6 md:col-span-3'>
+        <article class=''>
+          <h2 class='text-sky-300 text-2xl md:text-3xl font-extrabold mb-4'>
+            {title}
+          </h2>
+          <p class='text-xl md:text-lg text-gray-300/90 text-pretty'>
+            {description}
+          </p>
+        </article>
+
+        <ul class='flex gap-2 flex-wrap items-center my-4'>
+          {tags.map(({ color, Icon }) => (
+            <li class={`p-1.5 ${color} rounded-full flex items-center`}>
+              <Icon class='size-5' />
+            </li>
+          ))}
+        </ul>
+
+        <div class='flex w-full gap-4'>
+          <a
+            href={link}
+            target='_blank'
+            class='flex flex-row-reverse items-center gap-2 px-4 py-2 bg-zinc-300 text-black text-lg md:text-xl font-bold rounded-lg group/hover'
+          >
+            <span>
+              <IconExternalLink class='size-5 duration-300 ease-in-out transition group-hover/hover:scale-110' />
+            </span>
+            Live
+          </a>
+          <a
+            href={repo}
+            target='_blank'
+            class='flex flex-row-reverse items-center gap-2 px-4 py-2 bg-zinc-300 text-black text-lg md:text-xl font-bold rounded-lg group/hover'
+          >
+            <span>
+              <IconLink class='size-5 duration-300 ease-in-out transition group-hover/hover:scale-110' />
+            </span>
+            Code
+          </a>
+        </div>
+      </div>
+    </li>
+  ))
+}

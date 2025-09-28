@@ -1,0 +1,14 @@
+---
+import IconStar from '../assets/icons/IconStar.astro'
+import Cards from './Cards.astro'
+---
+
+<section id='proyectos' class='w-full md:w-[720px] container mx-auto py-8'>
+  <h2 class='flex gap-2 items-center text-4xl md:text-5xl font-extrabold mb-8'>
+    <IconStar class='size-10 md:size-12' /><span>Proyectos</span>
+  </h2>
+
+  <ul class='grid grid-cols-4 gap-y-20'>
+    <Cards />
+  </ul>
+</section>
