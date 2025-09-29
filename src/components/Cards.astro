@@ -4,6 +4,8 @@ import home from '../assets/img/Tournament.jpg'
 import ebisu from '../assets/img/ebisu.jpg'
 import assbook from '../assets/img/assbook.jpg'
 import jobentry from '../assets/img/jobEntry.jpg'
+import Study_and_prediction from '../assets/img/corr.jpg'
+import gameHub from '../assets/img/gameHub.jpg'
 
 import IconPython from '../assets/icons/IconPython.astro'
 import IconTS from '../assets/icons/IconTS.astro'
@@ -19,8 +21,22 @@ import IconBootstrap from '../assets/icons/IconBootstrap.astro'
 import IconLaravel from '../assets/icons/IconLaravel.astro'
 import IconAngular from '../assets/icons/IconAngular.astro'
 import IconSymfony from '../assets/icons/IconSymfony.astro'
+import IconPandas from '../assets/icons/IconPandas.astro'
+import IconScikitLearn from '../assets/icons/IconSckitLearn.astro'
 
 const TAGS = {
+  PANDAS:{
+    name: 'Pandas',
+    color: 'bg-blue-500/30',
+    Icon: IconPandas
+  },
+
+  SCIKITLEARN:{
+    name: 'Scikitlearn',
+    color: 'bg-blue-500/30',
+    Icon: IconScikitLearn
+  },
+  
   MONGO:{
     name: 'MongoDB',
     color: 'bg-blue-500/30',
@@ -86,6 +102,13 @@ const TAGS = {
 }
 
 const projects = [
+  {
+    title: 'Study-and-prediction-of-U.S.-contamination',
+    description: 'Proyecto de estudio de contaminación en los Estados Unidos y predicción de la contaminación en el futuro',
+    thumbnail: Study_and_prediction,
+    repo: 'https://github.com/Israelamat/Study-and-prediction-of-U.S.-contamination',
+    tags: [TAGS.PYTHON, TAGS.PANDAS, TAGS.SCIKITLEARN]
+  },
   
   {
     title: 'JobEntry',
@@ -97,11 +120,11 @@ const projects = [
   },
 
   {
-    title: 'Assbook',
-    description: 'Red social propia para subir fotos, buscar en la timeline, buscar perfiles, etc Servicios externos de terceros',
-    thumbnail: assbook,
+    title: 'GameHub',
+    description: 'Red social de desarrollo de videojuegos para desarrolladores',
+    thumbnail: gameHub,
     link: 'https://assbook.isra712.store/',
-    repo: 'https://github.com/Israelamat/ProyectoAngular_Final',
+    repo: 'https://github.com/Israelamat/gamehub',
     tags: [TAGS.TS, TAGS.ANGULAR, TAGS.BOOTSTRAP]
   },
   {
